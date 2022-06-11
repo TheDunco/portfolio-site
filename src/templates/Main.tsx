@@ -1,6 +1,6 @@
-import Link from 'next/link';
 import type { ReactNode } from 'react';
 
+import { Tabs } from '@/components/Tabs';
 import { AppConfig } from '@/utils/AppConfig';
 
 type IMainProps = {
@@ -22,28 +22,26 @@ const Main = (props: IMainProps) => (
         </div>
         <div>
           <ul className="flex flex-wrap text-xl">
-            <li className="mr-6">
-              <Link href="/">
-                <a className="border-none text-gray-700 hover:text-gray-900">
-                  Home
-                </a>
-              </Link>
-            </li>
-            <li className="mr-6">
-              <Link href="/about/">
-                <a className="border-none text-gray-700 hover:text-gray-900">
-                  About
-                </a>
-              </Link>
-            </li>
-            <li className="mr-6">
-              <a
-                className="border-none text-gray-700 hover:text-gray-900"
-                href="https://github.com/ixartz/Next-js-Boilerplate"
-              >
-                GitHub
-              </a>
-            </li>
+            <Tabs
+              tabs={[
+                {
+                  href: '/',
+                  label: 'Home',
+                },
+                {
+                  href: '/about/',
+                  label: 'About',
+                },
+                {
+                  href: '/portfolio/',
+                  label: 'Portfolio',
+                },
+                {
+                  href: '/sandbox/',
+                  label: 'Sandbox',
+                },
+              ]}
+            />
           </ul>
         </div>
       </div>
@@ -56,12 +54,6 @@ const Main = (props: IMainProps) => (
           ♥
         </span>{' '}
         by <a href="https://creativedesignsguru.com">CreativeDesignsGuru</a>
-        {/*
-         * PLEASE READ THIS SECTION
-         * We'll really appreciate if you could have a link to our website
-         * The link doesn't need to appear on every pages, one link on one page is enough.
-         * Thank you for your support it'll mean a lot for us.
-         */}
       </div>
     </div>
   </div>
