@@ -1,6 +1,10 @@
+import { Tabs } from '@mantine/core';
 import type { ReactNode } from 'react';
+import { MessageCircle, Photo, Settings } from 'tabler-icons-react';
 
-import { Tabs } from '@/components/Tabs';
+import About from '@/page-components/about';
+import Portfolio from '@/page-components/portfolio';
+import Sandbox from '@/page-components/sandbox';
 import { AppConfig } from '@/utils/AppConfig';
 
 type IMainProps = {
@@ -20,30 +24,18 @@ const Main = (props: IMainProps) => (
           </div>
           <div className="text-xl">{AppConfig.description}</div>
         </div>
-        <div>
-          <ul className="flex flex-wrap text-xl">
-            <Tabs
-              tabs={[
-                {
-                  href: '/',
-                  label: 'Home',
-                },
-                {
-                  href: '/about/',
-                  label: 'About',
-                },
-                {
-                  href: '/portfolio/',
-                  label: 'Portfolio',
-                },
-                {
-                  href: '/sandbox/',
-                  label: 'Sandbox',
-                },
-              ]}
-            />
-          </ul>
-        </div>
+
+        <Tabs>
+          <Tabs.Tab label="Portfolio" icon={<Photo size={14} />}>
+            <Portfolio />
+          </Tabs.Tab>
+          <Tabs.Tab label="About" icon={<MessageCircle size={14} />}>
+            <About />
+          </Tabs.Tab>
+          <Tabs.Tab label="Sandbox" icon={<Settings size={14} />}>
+            <Sandbox />
+          </Tabs.Tab>
+        </Tabs>
       </div>
 
       <div className="content py-5 text-xl">{props.children}</div>

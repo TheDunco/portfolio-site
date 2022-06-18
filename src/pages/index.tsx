@@ -11,7 +11,7 @@ export const Index = () => {
         />
       }
     >
-      <h1>Duncan Van Keulen</h1>
+      {/* <h1>Duncan Van Keulen</h1> */}
     </Main>
   );
 };

@@ -15,10 +15,11 @@ export const CustomBackgroundImage: React.FC<CustomBackgroundImageProps> = ({
   return (
     <Image
       className={cn(className)}
-      layout="responsive"
+      layout="fixed"
       width={100}
       height={100}
       src={imageLink}
+      alt="background"
     >
       {children}
     </Image>
