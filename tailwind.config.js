@@ -1,5 +1,8 @@
 module.exports = {
-  content: ['./src/**/*.{js,ts,jsx,tsx}'],
+  content: [
+    './src/**/*.{js,ts,jsx,tsx}',
+    'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}',
+  ],
   theme: {
     fontSize: {
       xs: '0.75rem',
@@ -12,6 +15,13 @@ module.exports = {
       '4xl': '2.25rem',
       '5xl': '3rem',
       '6xl': '4rem',
+      '7xl': '5rem',
+    },
+    fontFamily: {
+      monsterrat: 'Monsterrat, sans-serif',
+      'roboto-slab': 'Roboto Slab, serif',
+      inter: 'Inter, sans-serif',
+      'theme-font': '--theme-font',
     },
     extend: {
       colors: {
@@ -37,8 +47,29 @@ module.exports = {
           800: '#2c5282',
           900: '#2a4365',
         },
+        'color-bg': 'var(--color-bg)',
+        'color-text': 'var(--color-text)',
+        'color-primary': 'var(--color-primary)',
+        'color-secondary': 'var(--color-secondary)',
+        'color-special': 'var(--color-special)',
+      },
+      keyframes: {
+        wave: {
+          '0%': { transform: 'rotate(0.0deg)' },
+          '15%': { transform: 'rotate(14.0deg)' },
+          '30%': { transform: 'rotate(-8.0deg)' },
+          '40%': { transform: 'rotate(14.0deg)' },
+          '50%': { transform: 'rotate(-4.0deg)' },
+          '60%': { transform: 'rotate(10.0deg)' },
+          '70%': { transform: 'rotate(0.0deg)' },
+          '100%': { transform: 'rotate(0.0deg)' },
+        },
+      },
+      animation: {
+        wave: 'wave 1.5s infinite',
       },
     },
   },
-  plugins: [],
+  // eslint-disable-next-line global-require
+  plugins: [require('flowbite/plugin')],
 };

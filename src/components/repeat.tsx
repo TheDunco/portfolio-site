@@ -1,3 +1,5 @@
+import { Map } from './map';
+
 export interface RepeatProps {
   children: React.ReactNode;
   times: number;
@@ -6,10 +8,7 @@ export interface RepeatProps {
 export const Repeat: React.FC<RepeatProps> = ({ children, times }) => {
   return (
     <>
-      {' '}
-      {[...Array(times)].map((key) => (
-        <div key={key}>{children}</div>
-      ))}
+      <Map array={[...Array(times)]}>{children}</Map>
     </>
   );
 };

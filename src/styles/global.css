@@ -19,3 +19,14 @@ a:hover {
 .content ul {
   @apply my-6;
 }
+
+@layer base {
+    [data-theme="classy"] {
+        --color-bg: #F1EDEE;
+        --color-text: #3D5467;
+        --color-primary: #DB5461;
+        --color-secondary: #686963;
+        --color-special: #8AA29E;
+        --theme-font: 'Roboto Slab, serif'
+    }
+}

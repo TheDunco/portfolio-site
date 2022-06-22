@@ -1,4 +1,5 @@
 import { Meta } from '@/layouts/Meta';
+import Portfolio from '@/page-components/portfolio';
 import { Main } from '@/templates/Main';
 
 export const Index = () => {
@@ -11,7 +12,7 @@ export const Index = () => {
         />
       }
     >
-      {/* <h1>Duncan Van Keulen</h1> */}
+      <Portfolio></Portfolio>
     </Main>
   );
 };
