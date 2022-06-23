@@ -18,7 +18,11 @@ export const CustomTimeline: React.FC<ClassnameProp & ChildrenProp> = ({
 }) => {
   return (
     <ol
-      className={cn(className, 'relative border-l border-color-special ml-10')}
+      id="custom"
+      className={cn(
+        className,
+        'relative border-l border-color-special m-5 ml-10'
+      )}
     >
       {children}
     </ol>
@@ -79,8 +83,8 @@ export const CTimelineEntry: React.FC<ChildrenProp> = ({ children }) => {
     <li className="mb-10 ml-6">
       <span className="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-blue-200 ring-8 ring-white dark:bg-blue-900 dark:ring-gray-900">
         <CTimelineSvg />
-        {children}
       </span>
+      {children}
     </li>
   );
 };
