@@ -53,10 +53,7 @@ const Portfolio = () => {
                                         <div>Others inspired by GMK</div>
                                     </Dropdown.Header>
                                     <Dropdown.Item>
-                                        <button onClick={() => {
-                                            setTheme(themes.classy)
-                                            window.location.reload();
-                                        }>
+                                        <button onClick={() => setTheme(themes.classy)}>
                                             Classy
                                         </button>
                                     </Dropdown.Item>
@@ -125,7 +122,7 @@ const Portfolio = () => {
                             </span>{' '}
                             by <a href="https://creativedesignsguru.com">CreativeDesignsGuru</a>
                         </div>
-                    </div>
+                    </div >
                 </>
             );
         }
