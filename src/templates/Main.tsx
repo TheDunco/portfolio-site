@@ -7,10 +7,22 @@ type IMainProps = {
   children: ReactNode;
 };
 
+export type Themes = {
+  classy: string;
+  pulse: string;
+  cherry: string;
+};
+
+export const themes: Themes = {
+  classy: 'classy',
+  pulse: 'pulse',
+  cherry: 'cherry',
+};
+
 const Main = (props: IMainProps) => (
   <div className="w-full antialiased">
     {props.meta}
-    <div className="content flex h-screen w-full font-inter text-xl font-thin">
+    <div className="content flex w-full font-inter text-xl font-thin">
       {props.children}
     </div>
     <div className="border-t border-gray-300 py-8 text-center text-sm">

@@ -29,4 +29,13 @@ a:hover {
         --color-special: #8AA29E;
         --theme-font: 'Roboto Slab, serif'
     }
+    
+    [data-theme="cherry"] {
+    --color-bg: #1B2021;
+    --color-text: #EA638C;
+    --color-primary: #EA638C;
+    --color-secondary: #FFD9DA;
+    --color-special: #30343F;
+    --theme-font: 'Inter, sans-serif';
+    }
 }

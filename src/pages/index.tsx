@@ -1,6 +1,11 @@
+import dynamic from 'next/dynamic';
+
 import { Meta } from '@/layouts/Meta';
-import Portfolio from '@/page-components/portfolio';
 import { Main } from '@/templates/Main';
+
+const DynamicPortfolio = dynamic(() => import('@/page-components/portfolio'), {
+  ssr: false,
+});
 
 export const Index = () => {
   return (
@@ -12,7 +17,7 @@ export const Index = () => {
         />
       }
     >
-      <Portfolio></Portfolio>
+      <DynamicPortfolio></DynamicPortfolio>
     </Main>
   );
 };
