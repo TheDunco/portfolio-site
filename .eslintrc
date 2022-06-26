@@ -10,7 +10,8 @@
       "error",
       {
         "singleQuote": true,
-        "endOfLine": "auto"
+        "endOfLine": "auto",
+        "noConsole": "warn"
       }
     ]
   },

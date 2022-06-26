@@ -115,7 +115,7 @@ const Portfolio = () => {
                 </CTimelineBody>
               </CTimelineEntry>
             </CustomTimeline>
-            <div className="bg-color-background border-t py-8 text-center text-sm text-color-text">
+            <div className="border-t py-8 text-center text-sm text-color-text">
               © Copyright {new Date().getFullYear()} {AppConfig.title}. Powered
               with{' '}
               <span role="img" aria-label="Love">
@@ -130,7 +130,8 @@ const Portfolio = () => {
     }
     return null;
   } catch (e) {
-    console.log('e', e);
+    // eslint-disable-next-line no-console
+    console.error('e', e);
     return null;
   }
 };
