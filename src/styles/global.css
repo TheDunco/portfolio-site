@@ -31,11 +31,11 @@ a:hover {
     }
     
     [data-theme="cherry"] {
-    --color-bg: #1B2021;
-    --color-text: #EA638C;
-    --color-primary: #FFD9DA;
-    --color-secondary: #EA638C;
-    --color-special: #30343F;
-    --theme-font: 'Inter, sans-serif';
+        --color-bg: #1B2021;
+        --color-text: #EA638C;
+        --color-primary: #FFD9DA;
+        --color-secondary: #EA638C;
+        --color-special: #30343F;
+        --theme-font: 'Monsterrat, sans-serif';
     }
 }
