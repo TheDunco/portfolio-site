@@ -32,7 +32,7 @@ export const CustomTimeline: React.FC<ClassnameProp & ChildrenProp> = ({
 export const CTimelineSvg: React.FC = () => {
   return (
     <svg
-      className="h-3 w-3 text-color-text"
+      className="h-3 w-3 text-color-secondary"
       fill="currentColor"
       viewBox="0 0 20 20"
       xmlns="http://www.w3.org/2000/svg"
@@ -56,7 +56,7 @@ export const CTimelineChip: React.FC<TextProp> = ({ text }) => {
 
 export const CTimelineHeader: React.FC<ChildrenProp> = ({ children }) => {
   return (
-    <h3 className="mb-1 flex items-center text-lg font-semibold text-gray-900 dark:text-white">
+    <h3 className="mb-1 flex items-center text-2xl font-semibold text-color-primary">
       {children}{' '}
     </h3>
   );
@@ -64,24 +64,20 @@ export const CTimelineHeader: React.FC<ChildrenProp> = ({ children }) => {
 
 export const CTimelineTime: React.FC<ChildrenProp> = ({ children }) => {
   return (
-    <time className="mb-2 block text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+    <time className="mb-2 block text-lg font-normal leading-none text-color-secondary">
       {children}
     </time>
   );
 };
 
 export const CTimelineBody: React.FC<ChildrenProp> = ({ children }) => {
-  return (
-    <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
-      {children}
-    </p>
-  );
+  return <p className="mb-4 text-lg font-normal">{children}</p>;
 };
 
 export const CTimelineEntry: React.FC<ChildrenProp> = ({ children }) => {
   return (
     <li className="mb-10 ml-6">
-      <span className="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-blue-200 ring-8 ring-white dark:bg-blue-900 dark:ring-gray-900">
+      <span className="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-color-primary ring-8 ring-color-bg">
         <CTimelineSvg />
       </span>
       {children}

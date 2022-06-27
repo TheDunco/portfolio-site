@@ -11,16 +11,16 @@ export type Themes = {
   pulse: string;
 };
 
-export const themes: Themes = {
-  classy: 'classy',
-  cherry: 'cherry',
-  pulse: 'pulse',
-};
+export enum ThemesEnum {
+  CLASSY = 'classy',
+  CHERRY = 'cherry',
+  PULSE = 'pulse',
+}
 
 const Main = (props: IMainProps) => (
   <div className="w-full antialiased">
     {props.meta}
-    <div className="content flex w-full font-inter text-xl font-thin">
+    <div className="content flex w-full overflow-x-hidden font-inter text-xl font-thin">
       {props.children}
     </div>
   </div>

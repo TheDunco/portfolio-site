@@ -1,8 +1,9 @@
 import { useLocalStorage } from '@mantine/hooks';
 import cn from 'classnames';
-import { Dropdown } from 'flowbite-react';
+import { Carousel, Dropdown } from 'flowbite-react';
 import { useState } from 'react';
 
+import { ThemeButton } from '@/components/Buttons/ThemeSelectButton';
 import {
   CTimelineBody,
   CTimelineEntry,
@@ -11,13 +12,31 @@ import {
   CustomTimeline,
 } from '@/components/CustomTimeline/CustomTimeline';
 import { stringConstants } from '@/lib/stringConstants';
-import { themes } from '@/templates/Main';
+import { ThemesEnum } from '@/templates/Main';
 import { AppConfig } from '@/utils/AppConfig';
 
 const flexSyles = 'flex flex-1 grow flex-col justify-start';
-const textStyles = 'text-sm text-color-primary';
-const localStorageThemeEntry = 'color-scheme;';
-const defaultTheme = themes.classy;
+const textStyles = 'text-sm text-color-text';
+const localStorageThemeEntry = 'color-scheme';
+const defaultTheme = ThemesEnum.CLASSY;
+
+interface ParenProps {
+  text: string;
+  className?: string;
+}
+
+const Parenthetical: React.FC<ParenProps> = ({ text, className }) => {
+  return (
+    <>
+      {' '}
+      <span
+        className={cn('text-sm font-light text-color-secondary', className)}
+      >
+        ({text})
+      </span>
+    </>
+  );
+};
 
 const Portfolio = () => {
   const [theme, setTheme] = useLocalStorage({
@@ -25,10 +44,6 @@ const Portfolio = () => {
     defaultValue: defaultTheme,
   });
   const [fontStyles, setFontStyles] = useState('font-theme-font');
-
-  // useEffect(() => {
-  //     setTheme(theme);
-  // }, [setTheme, theme]);
 
   return (
     <>
@@ -38,12 +53,12 @@ const Portfolio = () => {
           flexSyles,
           textStyles,
           fontStyles,
-          'scroll-smooth bg-color-bg align-middle md:text-lg lg:text-xl xl:text-2xl'
+          'scroll-smooth bg-color-bg align-middle text-lg'
         )}
       >
         <header>
           {' '}
-          <div className="flex justify-end bg-color-secondary py-5 pr-10">
+          <div className="flex justify-end bg-color-primary py-5 pr-10">
             <Dropdown inline={true} label="Site Theme">
               <Dropdown.Header>
                 <span className="block text-sm">Set the site theme</span>
@@ -54,27 +69,28 @@ const Portfolio = () => {
                 <div>Others inspired by GMK</div>
               </Dropdown.Header>
               <Dropdown.Item>
-                <button
-                  onClick={() => {
-                    setTheme(themes.classy);
-                    setFontStyles('font-roboto');
+                <ThemeButton
+                  theme={ThemesEnum.CLASSY}
+                  click={() => {
+                    setTheme(ThemesEnum.CLASSY);
+                    setFontStyles('font-roboto-slab');
                   }}
-                >
-                  Classy
-                </button>
+                ></ThemeButton>
               </Dropdown.Item>
               <Dropdown.Item>
-                <button
-                  onClick={() => {
-                    setTheme(themes.cherry);
+                <ThemeButton
+                  theme={ThemesEnum.CHERRY}
+                  click={() => {
+                    setTheme(ThemesEnum.CHERRY);
                     setFontStyles('font-inter');
                   }}
-                >
-                  Cherry
-                </button>
+                ></ThemeButton>
               </Dropdown.Item>
               <Dropdown.Item>
-                <button onClick={() => setTheme(themes.pulse)}>Pulse</button>
+                <ThemeButton
+                  click={() => setTheme(ThemesEnum.PULSE)}
+                  theme={ThemesEnum.PULSE}
+                ></ThemeButton>
               </Dropdown.Item>
             </Dropdown>
           </div>
@@ -93,6 +109,7 @@ const Portfolio = () => {
             <li>🎵 Music</li>
             <li>🐲 Dungeons and Dragons</li>
             <li>🇯🇵 Anime</li>
+            <li>🚁 Drones</li>
             <ol className="ml-5 mt-0 list-disc">
               🎮 Video Games
               <li className="ml-5">Minecraft</li>
@@ -112,13 +129,199 @@ const Portfolio = () => {
         </p>
         <CustomTimeline>
           <CTimelineEntry>
-            <CTimelineHeader>Flowbite Application UI v2.0.0 </CTimelineHeader>
-            <CTimelineTime>Released on January 13th, 2022</CTimelineTime>
+            <CTimelineHeader>🎓 South Christian High School </CTimelineHeader>
+            <CTimelineTime>
+              <span>2014-2018</span>
+              <div className="-mb-1 mt-1 font-light opacity-70"> 3.95 GPA</div>
+            </CTimelineTime>
             <CTimelineBody>
               {' '}
-              Get access to over 20+ pages including a dashboard layout, charts,
-              kanban board, calendar, and pre-order E-commerce & Marketing
-              pages.
+              Took many shop classes, engineering classes, and had my first
+              exposure to Python
+            </CTimelineBody>
+          </CTimelineEntry>
+          <CTimelineEntry>
+            <CTimelineHeader>🚐 Midway RV Center </CTimelineHeader>
+            <CTimelineTime>2016-2020</CTimelineTime>
+            <CTimelineBody>
+              {' '}
+              No code here, but I learned the art of detailing, how to work and
+              with a variety of diverse coworkers, and other essential life
+              skills
+            </CTimelineBody>
+          </CTimelineEntry>
+          <CTimelineEntry>
+            <CTimelineHeader>🎓 Calvin University</CTimelineHeader>
+            <CTimelineTime>
+              {' '}
+              <span>2018-2022</span>
+              <div className="-mb-1 mt-1 font-light opacity-70">
+                {' '}
+                Magna Cum Laude
+              </div>
+            </CTimelineTime>
+            <CTimelineBody>
+              {' '}
+              Many much code here.
+              <div className="h-64 xl:h-80 2xl:h-96">
+                <Carousel slide={false}>
+                  <div className="flex h-full flex-col items-start justify-start bg-color-bg text-color-text">
+                    <div className="ml-10 mt-5">
+                      <h1>Freshman Year</h1>
+                      <ol className="ml-10 list-disc">
+                        <li>
+                          Intro To Computing + Lab
+                          <Parenthetical text={'Python'} />
+                        </li>
+                        <li>
+                          Intro To Data Structures + Lab
+                          <Parenthetical text={'C++'} />
+                        </li>
+                        <li>
+                          Helped start the Calvin Mars Rover Design Team as the
+                          Programming Team Lead
+                        </li>
+                      </ol>
+                    </div>
+                  </div>
+                  <div className="flex h-full flex-col items-start justify-start bg-color-bg text-color-text">
+                    <div className="ml-10 mt-5">
+                      <h1>Sophomore Year</h1>
+                      <ol className="m-0 ml-10 mb-0 list-disc">
+                        <li>Intro Computing Seminar</li>
+                        <li>
+                          Intro To Computer Architecture + Lab
+                          <Parenthetical text={'C, Assembly'} />
+                        </li>
+                        <li>
+                          Data Structures & Algorithms
+                          <Parenthetical text={'C#'} />
+                        </li>
+                        <li>
+                          Programming Language Concepts + Lab
+                          <Parenthetical text={'Java, Ruby, Clojure, Ada'} />
+                        </li>
+                        <li>Continued as co-lead of CMRDT programming team</li>
+                      </ol>
+                    </div>
+                  </div>
+                  <div className="flex h-full flex-col items-start justify-start bg-color-bg text-color-text">
+                    <div className="ml-10 mt-5">
+                      <h1>Junior Year</h1>
+                      <ol className="m-0 ml-10 mb-0 list-disc">
+                        <li>
+                          Web Development! Final Project:{' '}
+                          <a
+                            href="https://github.com/TheDunco/character-sheet"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            5e Character Sheet
+                          </a>
+                          <Parenthetical text={'Angular'} />
+                        </li>
+                        <li>Computing Seminar</li>
+                        <li>
+                          Software Engineering + Lab
+                          <Parenthetical text={'React Native'} />
+                        </li>
+                        <li>
+                          Operating Systems & Networking
+                          <Parenthetical text={'C, Java'} />
+                        </li>
+                        <li>
+                          Embedded Systems and the IoT
+                          <Parenthetical text={'Python, Arduino'} />
+                        </li>
+                        <li>
+                          Statistics <Parenthetical text={'R'} />
+                        </li>
+                      </ol>
+                    </div>
+                  </div>
+                  <div className="flex h-full flex-col items-start justify-start bg-color-bg text-color-text">
+                    <div className="ml-10 mt-5">
+                      <h1>Senior Year</h1>
+                      <ol className="m-0 ml-10 mb-0 list-disc">
+                        <li>Computing Seminar</li>
+                        <li>Advanced Computer Networks</li>
+                        <li>
+                          High Performance Computing
+                          <Parenthetical text={'C'} />
+                        </li>
+                        <li>
+                          Senior Project in Computing {''}
+                          <a
+                            href="https://github.com/Inertia-Printers/InertiaPrintersWebsite"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Inertia Printers Project Website
+                          </a>
+                          <Parenthetical text={'Angular'} />
+                        </li>
+                        <li>Computer Security</li>
+                        <li>
+                          Artificial Intelligence{' '}
+                          <Parenthetical text={'Audit'} />
+                        </li>
+                      </ol>
+                    </div>
+                  </div>
+                </Carousel>
+              </div>
+            </CTimelineBody>
+          </CTimelineEntry>
+          <CTimelineEntry>
+            <CTimelineHeader>
+              <span className="mr-2 text-lg">💾</span> Watershed Technologies
+              LLC
+            </CTimelineHeader>
+            <CTimelineTime>
+              2020-2022
+              <div className="-mb-1 mt-1 font-light opacity-70">
+                {' '}
+                Embedded Systems Software Developer
+              </div>
+            </CTimelineTime>
+            <CTimelineBody>
+              <ol className="list-disc">
+                Worked under an Embedded Systems Engineering contractor (my
+                soon-to-be father in law) to build embedded systems for a
+                variety of real world customers.
+                <li className="ml-10">
+                  Developed many front-end C# applications for desktop and
+                  mobile using Windows and Xamarin Forms respectively and
+                  interfaced with custom hardware using a custom communication
+                  protocol.
+                </li>
+                <li className="ml-10">
+                  These applications included many methods of user interaction
+                  and data-visualization.
+                </li>
+                <li className="ml-10">
+                  Worked on a summer project to build an RC airplane capable of
+                  autonomous flight
+                </li>
+              </ol>
+            </CTimelineBody>
+          </CTimelineEntry>
+          <CTimelineEntry>
+            <CTimelineHeader>🛠 Tekton Inc </CTimelineHeader>
+            <CTimelineTime>
+              2022-Present{' '}
+              <div className="-mb-1 mt-1 font-light opacity-70">
+                {' '}
+                Software Developer{' '}
+                <Parenthetical className="text-base" text={'Ecommerce'} />
+              </div>
+            </CTimelineTime>
+            <CTimelineBody>
+              {' '}
+              Full stack ecommerce software developer utilizing a modern tech
+              stack to build and maintain a production website for a local
+              business, delivering thousands of hand tools to a loyal base of
+              customers.
             </CTimelineBody>
           </CTimelineEntry>
         </CustomTimeline>
