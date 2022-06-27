@@ -1,4 +1,4 @@
-import { useLocalStorage } from '@mantine/hooks';
+import { range, useLocalStorage } from '@mantine/hooks';
 import cn from 'classnames';
 import { Carousel, Dropdown } from 'flowbite-react';
 import { useState } from 'react';
@@ -19,7 +19,11 @@ const flexSyles = 'flex flex-1 grow flex-col justify-start';
 const textStyles = 'text-sm text-color-text';
 const localStorageThemeEntry = 'color-scheme';
 const defaultTheme = ThemesEnum.CLASSY;
-
+const liCycleStyles1 =
+  'mt-5 py-2 text-xl w-[fit-content] bg-color-special rounded-lg px-2 ease-in-out transform-gpu duration-200';
+const liCycleStyles2 =
+  'text-xl w-[fit-content] bg-color-special rounded-lg px-2 ease-in-out transform-gpu duration-200 translate-y-1 opacity-0 h-0';
+const liCycleInterval = 2000;
 interface ParenProps {
   text: string;
   className?: string;
@@ -38,12 +42,50 @@ const Parenthetical: React.FC<ParenProps> = ({ text, className }) => {
   );
 };
 
-const Portfolio = () => {
+enum LiCycles {
+  CODING,
+  KEYBOARDS,
+  HEADPHONES,
+  MUSIC,
+  DND,
+  ANIME,
+  DRONES,
+  MINECRAFT,
+  RL,
+  SSBU,
+  TF2,
+  SKYRIM,
+}
+
+const LiCyclesToText: Record<number, string> = {
+  0: '👨🏼‍💻 Coding',
+  1: '⌨️ Keyboards',
+  2: '🎧 Headphones',
+  3: '🎵 Music',
+  4: '🐲 Dungeons and Dragons',
+  5: '🇯🇵 Anime',
+  6: '🚁 Drones',
+  7: '🧱 Minecraft',
+  8: '⚽️ Rocket League',
+  9: '💥 Super Smash Bros (Ultimate)',
+  10: '🤖 Titanfall 2',
+  11: '🗡 Skyrim',
+};
+
+export const Portfolio: React.FC = () => {
   const [theme, setTheme] = useLocalStorage({
     key: localStorageThemeEntry,
     defaultValue: defaultTheme,
   });
   const [fontStyles, setFontStyles] = useState('font-theme-font');
+  const [liCycle, setLiCycle] = useState(LiCycles.CODING);
+  setTimeout(() => {
+    if (liCycle + 1 >= LiCycles.SKYRIM) {
+      setLiCycle(LiCycles.CODING);
+    } else {
+      setLiCycle(liCycle + 1);
+    }
+  }, liCycleInterval);
 
   return (
     <>
@@ -100,26 +142,18 @@ const Portfolio = () => {
           <div className="mr-3"> </div>
           <div>{stringConstants.intro}</div>
         </span>
-        <div className="ml-10">
-          I&apos;m a Christian software developer who loves...
-          <ul>
-            <li>👨🏼‍💻 Coding</li>
-            <li>⌨️ Keyboards</li>
-            <li>🎧 Headphones</li>
-            <li>🎵 Music</li>
-            <li>🐲 Dungeons and Dragons</li>
-            <li>🇯🇵 Anime</li>
-            <li>🚁 Drones</li>
-            <ol className="ml-5 mt-0 list-disc">
-              🎮 Video Games
-              <li className="ml-5">Minecraft</li>
-              <li className="ml-5">Rocket League</li>
-              <li className="ml-5">Super Smash Bros (Ultimate)</li>
-              <li className="ml-5">Titanfall 2</li>
-              <li className="ml-5">Skyrim</li>
-              <li className="ml-5">And many more... </li>
-            </ol>
-          </ul>
+        <div className="ml-10 text-xl">
+          I&apos;m a Christian software developer who enjoys...
+          <div className="">
+            {range(0, 12).map((i) => (
+              <div
+                key={i}
+                className={cn(liCycle === i ? liCycleStyles1 : liCycleStyles2)}
+              >
+                {LiCyclesToText[liCycle]}
+              </div>
+            ))}
+          </div>
         </div>
 
         <p className="ml-10">
@@ -142,7 +176,10 @@ const Portfolio = () => {
           </CTimelineEntry>
           <CTimelineEntry>
             <CTimelineHeader>🚐 Midway RV Center </CTimelineHeader>
-            <CTimelineTime>2016-2020</CTimelineTime>
+            <CTimelineTime>
+              <span>2016-2020</span>
+              <div className="-mb-1 mt-1 font-light opacity-70"> Detailer</div>
+            </CTimelineTime>
             <CTimelineBody>
               {' '}
               No code here, but I learned the art of detailing, how to work and
@@ -167,7 +204,7 @@ const Portfolio = () => {
                 <Carousel slide={false}>
                   <div className="flex h-full flex-col items-start justify-start bg-color-bg text-color-text">
                     <div className="ml-10 mt-5">
-                      <h1>Freshman Year</h1>
+                      <div className="text-lg font-semibold">Freshman Year</div>
                       <ol className="ml-10 list-disc">
                         <li>
                           Intro To Computing + Lab
@@ -186,7 +223,9 @@ const Portfolio = () => {
                   </div>
                   <div className="flex h-full flex-col items-start justify-start bg-color-bg text-color-text">
                     <div className="ml-10 mt-5">
-                      <h1>Sophomore Year</h1>
+                      <div className="text-lg font-semibold">
+                        Sophomore Year
+                      </div>
                       <ol className="m-0 ml-10 mb-0 list-disc">
                         <li>Intro Computing Seminar</li>
                         <li>
@@ -207,7 +246,7 @@ const Portfolio = () => {
                   </div>
                   <div className="flex h-full flex-col items-start justify-start bg-color-bg text-color-text">
                     <div className="ml-10 mt-5">
-                      <h1>Junior Year</h1>
+                      <div className="text-lg font-semibold">Junior Year</div>
                       <ol className="m-0 ml-10 mb-0 list-disc">
                         <li>
                           Web Development! Final Project:{' '}
@@ -215,6 +254,7 @@ const Portfolio = () => {
                             href="https://github.com/TheDunco/character-sheet"
                             target="_blank"
                             rel="noopener noreferrer"
+                            className="text-base font-light"
                           >
                             5e Character Sheet
                           </a>
@@ -241,7 +281,7 @@ const Portfolio = () => {
                   </div>
                   <div className="flex h-full flex-col items-start justify-start bg-color-bg text-color-text">
                     <div className="ml-10 mt-5">
-                      <h1>Senior Year</h1>
+                      <div className="text-lg font-semibold">Senior Year</div>
                       <ol className="m-0 ml-10 mb-0 list-disc">
                         <li>Computing Seminar</li>
                         <li>Advanced Computer Networks</li>
@@ -255,6 +295,7 @@ const Portfolio = () => {
                             href="https://github.com/Inertia-Printers/InertiaPrintersWebsite"
                             target="_blank"
                             rel="noopener noreferrer"
+                            className="text-base font-light"
                           >
                             Inertia Printers Project Website
                           </a>

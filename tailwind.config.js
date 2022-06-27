@@ -64,9 +64,27 @@ module.exports = {
           '70%': { transform: 'rotate(0.0deg)' },
           '100%': { transform: 'rotate(0.0deg)' },
         },
+        visibility: {
+          '99%': { visibility: 'hidden' },
+          '100%': { visibility: 'visible' },
+        },
+        cube: {
+          '0%': {
+            opacity: 1,
+            transform: 'translateY(0) rotateX(0)',
+          },
+          '50%': {
+            '0%': {
+              opacity: 1,
+              transform: 'translateY(50%) rotateX(90deg)',
+            },
+          },
+        },
       },
       animation: {
         wave: 'wave 1.5s infinite',
+        visibility: 'visibility 1s fadeIn',
+        cube: 'cube 1s ease-in-out',
       },
     },
   },
