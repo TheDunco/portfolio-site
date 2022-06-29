@@ -1,8 +1,8 @@
 import { range, useLocalStorage, useToggle } from '@mantine/hooks';
 import cn from 'classnames';
-import { Carousel } from 'flowbite-react';
+import { Carousel, Tooltip } from 'flowbite-react';
 import { useState } from 'react';
-import { CaretDown } from 'tabler-icons-react';
+import { CaretDown, Palette } from 'tabler-icons-react';
 
 import { ThemeButton } from '@/components/Buttons/ThemeSelectButton';
 import {
@@ -17,7 +17,7 @@ import { ThemesEnum } from '@/templates/Main';
 import { AppConfig } from '@/utils/AppConfig';
 
 const flexSyles = 'flex flex-1 grow flex-col justify-start';
-const textStyles = 'text-sm text-color-text';
+const textStyles = 'text-color-text';
 const localStorageThemeEntry = 'color-scheme';
 const defaultTheme = ThemesEnum.CLASSY;
 const liCycleStyles1 =
@@ -94,7 +94,7 @@ export const Portfolio: React.FC = () => {
           flexSyles,
           textStyles,
           fontStyles,
-          'scroll-smooth bg-color-bg align-middle text-lg'
+          'scroll-smooth bg-color-bg align-middle md:text-lg lg:text-2xl transition-transform ease-in-out duration-200'
         )}
       >
         <header>
@@ -105,11 +105,24 @@ export const Portfolio: React.FC = () => {
                 toggleTheme();
               }}
             >
-              <div className="">Site Theme</div>
+              <span className="pt-1 pr-1 opacity-70">
+                <Tooltip content="Coolers color generator">
+                  <a
+                    href="https://coolors.co/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Palette size={20} strokeWidth={2} color={'white'} />
+                  </a>
+                </Tooltip>
+              </span>
+              <span>Site Theme</span>
               <span
                 className={cn(
-                  'ease-in-out transform-gpu duration-200 transition-all mr-5',
-                  themeExpandedToggle ? 'rotate-180' : ''
+                  'ease-in-out transform-gpu duration-200 transition-all',
+                  themeExpandedToggle
+                    ? 'rotate-180 mt-1 lg:mt-2'
+                    : 'mb-1 lg:mt-2'
                 )}
               >
                 <CaretDown />
@@ -118,7 +131,7 @@ export const Portfolio: React.FC = () => {
             <div aria-label="theme-accordion" id="theme-accordion">
               <div
                 className={cn(
-                  'flex flex-row justify-around mr-0 pr-24 gap-5 ease-in-out transform-gpu duration-300 transition-all',
+                  'flex flex-row justify-evenly py-1 gap-5 ease-in-out transform-gpu duration-300 transition-all',
                   themeExpandedToggle
                     ? 'block h-14'
                     : '-translate-y-20 h-0 opacity-0'
@@ -164,7 +177,7 @@ export const Portfolio: React.FC = () => {
           of real world software development experience. I also fancy a custom
           project like this one occasionally.
         </p>
-        <CustomTimeline>
+        <CustomTimeline className="md:text-lg">
           <CTimelineEntry>
             <CTimelineHeader>🎓 South Christian High School </CTimelineHeader>
             <CTimelineTime>
@@ -203,7 +216,7 @@ export const Portfolio: React.FC = () => {
             <CTimelineBody>
               {' '}
               Many much code here.
-              <div className="h-64 md:w-60 xl:h-80 2xl:h-96">
+              <div className="h-64 lg:w-2/3">
                 <Carousel slide={false}>
                   <div className="flex h-full flex-col items-start justify-start bg-color-bg text-color-text">
                     <div className="ml-10 mt-5">
