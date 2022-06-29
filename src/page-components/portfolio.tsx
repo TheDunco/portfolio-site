@@ -1,7 +1,8 @@
-import { range, useLocalStorage } from '@mantine/hooks';
+import { range, useLocalStorage, useToggle } from '@mantine/hooks';
 import cn from 'classnames';
-import { Carousel, Dropdown } from 'flowbite-react';
+import { Carousel } from 'flowbite-react';
 import { useState } from 'react';
+import { CaretDown } from 'tabler-icons-react';
 
 import { ThemeButton } from '@/components/Buttons/ThemeSelectButton';
 import {
@@ -53,8 +54,6 @@ enum LiCycles {
   MINECRAFT,
   RL,
   SSBU,
-  TF2,
-  SKYRIM,
 }
 
 const LiCyclesToText: Record<number, string> = {
@@ -68,8 +67,6 @@ const LiCyclesToText: Record<number, string> = {
   7: '🧱 Minecraft',
   8: '⚽️ Rocket League',
   9: '💥 Super Smash Bros (Ultimate)',
-  10: '🤖 Titanfall 2',
-  11: '🗡 Skyrim',
 };
 
 export const Portfolio: React.FC = () => {
@@ -80,12 +77,14 @@ export const Portfolio: React.FC = () => {
   const [fontStyles, setFontStyles] = useState('font-theme-font');
   const [liCycle, setLiCycle] = useState(LiCycles.CODING);
   setTimeout(() => {
-    if (liCycle + 1 >= LiCycles.SKYRIM) {
+    if (liCycle + 1 >= LiCycles.SSBU) {
       setLiCycle(LiCycles.CODING);
     } else {
       setLiCycle(liCycle + 1);
     }
   }, liCycleInterval);
+
+  const [themeExpandedToggle, toggleTheme] = useToggle(false, [true, false]);
 
   return (
     <>
@@ -99,42 +98,46 @@ export const Portfolio: React.FC = () => {
         )}
       >
         <header>
-          {' '}
-          <div className="flex justify-end bg-color-primary py-5 pr-10">
-            <Dropdown inline={true} label="Site Theme">
-              <Dropdown.Header>
-                <span className="block text-sm">Set the site theme</span>
-                <div className="block truncate text-sm font-medium">
-                  Many created with
-                  <a href="https://coolors.co/"> https://coolors.co/</a>
-                </div>
-                <div>Others inspired by GMK</div>
-              </Dropdown.Header>
-              <Dropdown.Item>
+          <div className="flex flex-col justify-end bg-color-primary py-5">
+            <button
+              className="flex flex-row justify-end"
+              onClick={() => {
+                toggleTheme();
+              }}
+            >
+              <div className="">Site Theme</div>
+              <span
+                className={cn(
+                  'ease-in-out transform-gpu duration-200 transition-all mr-5',
+                  themeExpandedToggle ? 'rotate-180' : ''
+                )}
+              >
+                <CaretDown />
+              </span>
+            </button>
+            <div aria-label="theme-accordion" id="theme-accordion">
+              <div
+                className={cn(
+                  'flex flex-row justify-around mr-0 pr-24 gap-5 ease-in-out transform-gpu duration-300 transition-all',
+                  themeExpandedToggle
+                    ? 'block h-14'
+                    : '-translate-y-20 h-0 opacity-0'
+                )}
+              >
                 <ThemeButton
+                  themeSet={setTheme}
                   theme={ThemesEnum.CLASSY}
-                  click={() => {
-                    setTheme(ThemesEnum.CLASSY);
-                    setFontStyles('font-roboto-slab');
-                  }}
-                ></ThemeButton>
-              </Dropdown.Item>
-              <Dropdown.Item>
+                  fontSet={setFontStyles}
+                  font="font-roboto-slab"
+                />
                 <ThemeButton
+                  themeSet={setTheme}
                   theme={ThemesEnum.CHERRY}
-                  click={() => {
-                    setTheme(ThemesEnum.CHERRY);
-                    setFontStyles('font-inter');
-                  }}
-                ></ThemeButton>
-              </Dropdown.Item>
-              <Dropdown.Item>
-                <ThemeButton
-                  click={() => setTheme(ThemesEnum.PULSE)}
-                  theme={ThemesEnum.PULSE}
-                ></ThemeButton>
-              </Dropdown.Item>
-            </Dropdown>
+                  fontSet={setFontStyles}
+                  font="font-inter"
+                />
+              </div>
+            </div>
           </div>
         </header>
         <span className="mx-10 mt-10 flex flex-row text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
@@ -200,7 +203,7 @@ export const Portfolio: React.FC = () => {
             <CTimelineBody>
               {' '}
               Many much code here.
-              <div className="h-64 xl:h-80 2xl:h-96">
+              <div className="h-64 md:w-60 xl:h-80 2xl:h-96">
                 <Carousel slide={false}>
                   <div className="flex h-full flex-col items-start justify-start bg-color-bg text-color-text">
                     <div className="ml-10 mt-5">
