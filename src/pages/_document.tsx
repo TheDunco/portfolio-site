@@ -8,6 +8,16 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang={AppConfig.locale} className="bg-slate-100">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="true"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@1,300&family=Open+Sans:wght@300&display=swap"
+          rel="stylesheet"
+        />
         <Head />
         <body>
           <Main />

@@ -15,6 +15,9 @@ export enum ThemesEnum {
   CLASSY = 'classy',
   CHERRY = 'cherry',
   PULSE = 'pulse',
+  PACIFIC = 'pacific',
+  PASTEL = 'pastel',
+  DOLCH = 'dolch',
 }
 
 const Main = (props: IMainProps) => (

@@ -25,7 +25,7 @@ export const ThemeButton: React.FC<ThemeButtonProps> = ({
   return (
     <button
       data-theme={theme}
-      className={cn(className, ThemeButtonStyles, font, '')}
+      className={cn(className, ThemeButtonStyles, font, 'font-theme-font')}
       onClick={() => {
         themeSet(theme);
         fontSet(font);

@@ -131,10 +131,10 @@ export const Portfolio: React.FC = () => {
             <div aria-label="theme-accordion" id="theme-accordion">
               <div
                 className={cn(
-                  'flex flex-row justify-evenly py-1 gap-5 ease-in-out transform-gpu duration-300 transition-all',
+                  'flex justify-evenly flex-col my-36 mx-2 md:my-0 md:flex-row py-1 gap-5 ease-in-out transform-gpu duration-300 transition-all',
                   themeExpandedToggle
                     ? 'block h-14'
-                    : '-translate-y-20 h-0 opacity-0'
+                    : ' -translate-y-40 md:-translate-y-20 h-0 opacity-0 my-0'
                 )}
               >
                 <ThemeButton
@@ -147,7 +147,31 @@ export const Portfolio: React.FC = () => {
                   themeSet={setTheme}
                   theme={ThemesEnum.CHERRY}
                   fontSet={setFontStyles}
+                  font="font-monsterrat"
+                />
+                <ThemeButton
+                  themeSet={setTheme}
+                  theme={ThemesEnum.PACIFIC}
+                  fontSet={setFontStyles}
+                  font="font-open"
+                />
+                <ThemeButton
+                  themeSet={setTheme}
+                  theme={ThemesEnum.PULSE}
+                  fontSet={setFontStyles}
                   font="font-inter"
+                />
+                <ThemeButton
+                  themeSet={setTheme}
+                  theme={ThemesEnum.PASTEL}
+                  fontSet={setFontStyles}
+                  font="font-fira"
+                />
+                <ThemeButton
+                  themeSet={setTheme}
+                  theme={ThemesEnum.DOLCH}
+                  fontSet={setFontStyles}
+                  font="font-open"
                 />
               </div>
             </div>

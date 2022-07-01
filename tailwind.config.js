@@ -22,6 +22,8 @@ module.exports = {
       'roboto-slab': 'Roboto Slab, serif',
       inter: 'Inter, sans-serif',
       'theme-font': 'var(--theme-font)',
+      fira: 'Fira Sans, sans-serif',
+      open: 'Open Sans, sans-serif',
     },
     extend: {
       colors: {
