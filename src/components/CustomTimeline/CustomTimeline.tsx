@@ -76,7 +76,7 @@ export const CTimelineBody: React.FC<ChildrenProp> = ({ children }) => {
 
 export const CTimelineEntry: React.FC<ChildrenProp> = ({ children }) => {
   return (
-    <li className="mb-10 ml-6">
+    <li className={cn('mb-10 ml-6')}>
       <span className="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-color-primary ring-8 ring-color-bg">
         <CTimelineSvg />
       </span>

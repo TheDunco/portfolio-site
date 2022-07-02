@@ -134,7 +134,7 @@ export const Portfolio: React.FC = () => {
                   'flex justify-evenly flex-col my-36 mx-2 md:my-0 md:flex-row py-1 gap-5 ease-in-out transform-gpu duration-300 transition-all',
                   themeExpandedToggle
                     ? 'block h-14'
-                    : ' -translate-y-40 md:-translate-y-20 h-0 opacity-0 my-0'
+                    : ' -translate-y-72 md:-translate-y-20 h-0 opacity-0 my-0'
                 )}
               >
                 <ThemeButton
@@ -222,9 +222,8 @@ export const Portfolio: React.FC = () => {
             </CTimelineTime>
             <CTimelineBody>
               {' '}
-              No code here, but I learned the art of detailing, how to work and
-              with a variety of diverse coworkers, and other essential life
-              skills
+              No code here, but I learned the art of detailing, how to work with
+              a variety of diverse coworkers, and other essential life skills
             </CTimelineBody>
           </CTimelineEntry>
           <CTimelineEntry>
@@ -372,9 +371,9 @@ export const Portfolio: React.FC = () => {
                 variety of real world customers.
                 <li className="ml-10">
                   Developed many front-end C# applications for desktop and
-                  mobile using Windows and Xamarin Forms respectively and
-                  interfaced with custom hardware using a custom communication
-                  protocol.
+                  mobile using Windows and Xamarin Forms respectively.
+                  Interfaced with custom hardware running C++ using a custom
+                  communication protocol.
                 </li>
                 <li className="ml-10">
                   These applications included many methods of user interaction
@@ -399,7 +398,7 @@ export const Portfolio: React.FC = () => {
             </CTimelineTime>
             <CTimelineBody>
               {' '}
-              Full stack ecommerce software developer utilizing a modern tech
+              Full stack Ecommerce software developer utilizing a modern tech
               stack to build and maintain a production website for a local
               business, delivering thousands of hand tools to a loyal base of
               customers.

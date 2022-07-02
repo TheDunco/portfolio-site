@@ -70,6 +70,10 @@ module.exports = {
           '99%': { visibility: 'hidden' },
           '100%': { visibility: 'visible' },
         },
+        fadeIn: {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 },
+        },
         cube: {
           '0%': {
             opacity: 1,
@@ -87,6 +91,7 @@ module.exports = {
         wave: 'wave 1.5s infinite',
         visibility: 'visibility 1s fadeIn',
         cube: 'cube 1s ease-in-out',
+        fadeIn: 'fadeIn 1s ease-in-out ',
       },
     },
   },
