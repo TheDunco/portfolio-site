@@ -116,7 +116,7 @@ export const Portfolio: React.FC = () => {
                   </a>
                 </Tooltip>
               </span>
-              <span>Site Theme</span>
+              <span className="text-color-bg">Site Theme</span>
               <span
                 className={cn(
                   'ease-in-out transform-gpu duration-200 transition-all',
@@ -212,7 +212,7 @@ export const Portfolio: React.FC = () => {
             </CTimelineTime>
             <CTimelineBody>
               Took many shop classes, engineering classes, and had my first
-              exposure to Python. Played in the band for 4 years.
+              exposure to Python. Played in band for 4 years.
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 48 48"
