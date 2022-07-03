@@ -483,7 +483,7 @@ export const Portfolio: React.FC = () => {
           <h2 className="ml-5 text-2xl font-semibold text-color-primary lg:text-3xl">
             My favorite web technologies
           </h2>
-          <span className="align-center m-5 flex flex-row flex-wrap justify-between rounded-lg bg-color-special p-5 sm:align-baseline">
+          <span className="m-5 flex flex-row flex-wrap justify-between rounded-lg bg-color-special p-5">
             <div>
               <svg
                 fill="#000000"
