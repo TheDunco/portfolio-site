@@ -245,10 +245,8 @@ export const Portfolio: React.FC = () => {
           <CTimelineEntry>
             <CTimelineHeader>🎓 Calvin University</CTimelineHeader>
             <CTimelineTime>
-              {' '}
               <span>2018-2022</span>
               <div className="-mb-1 mt-1 font-light opacity-70">
-                {' '}
                 Magna Cum Laude
               </div>
             </CTimelineTime>
@@ -379,7 +377,6 @@ export const Portfolio: React.FC = () => {
             <CTimelineTime>
               2020-2022
               <div className="-mb-1 mt-1 font-light opacity-70">
-                {' '}
                 Embedded Systems Software Developer
               </div>
             </CTimelineTime>
@@ -468,10 +465,9 @@ export const Portfolio: React.FC = () => {
           <CTimelineEntry>
             <CTimelineHeader>🛠 Tekton Inc </CTimelineHeader>
             <CTimelineTime>
-              2022-Present{' '}
+              2022-Present
               <div className="-mb-1 mt-1 font-light opacity-70">
-                {' '}
-                Software Developer{' '}
+                Software Developer
                 <Parenthetical className="text-base" text={'Ecommerce'} />
               </div>
             </CTimelineTime>
@@ -609,7 +605,7 @@ export const Portfolio: React.FC = () => {
             ♥
           </span>{' '}
           by <a href="https://creativedesignsguru.com">CreativeDesignsGuru </a>
-          using NextJS, React, and TailwindCSS icons by{' '}
+          using NextJS, React, and TailwindCSS. Icons by{' '}
           <a href="https://icons8.com">Icons8</a>
         </div>
       </div>
