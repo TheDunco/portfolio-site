@@ -251,8 +251,8 @@ export const Portfolio: React.FC = () => {
               </div>
             </CTimelineTime>
             <CTimelineBody>
-              College is where I mainly learned to code and how to code, along
-              with making many new friends and opening up socially.
+              College is where I mainly learned to code, how to play D&D, and I
+              made many new friends along the way, including my fiance!
               <div className="h-64 lg:w-2/3">
                 <Carousel slide={false}>
                   <div className="flex h-full flex-col items-start justify-start bg-color-bg text-color-text">
