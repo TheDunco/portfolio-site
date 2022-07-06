@@ -94,7 +94,7 @@ export const Portfolio: React.FC = () => {
           flexSyles,
           textStyles,
           fontStyles,
-          'scroll-smooth bg-color-bg align-middle md:text-lg lg:text-2xl transition-transform ease-in-out duration-200'
+          'scroll-smooth bg-color-bg align-middle md:text-lg lg:text-2xl transition-all ease-in-out duration-300'
         )}
       >
         <header>
@@ -189,7 +189,7 @@ export const Portfolio: React.FC = () => {
               <div
                 key={i}
                 className={cn(
-                  'text-xl lg:text-2xl xl:text-3xl',
+                  'text-xl lg:text-2xl xl:text-3xl text-color-bg',
                   liCycle === i ? liCycleStyles1 : liCycleStyles2
                 )}
               >
