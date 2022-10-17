@@ -97,7 +97,7 @@ export const Portfolio: React.FC = () => {
                     flexSyles,
                     textStyles,
                     fontStyles,
-                    "scroll-smooth bg-color-bg align-middle md:text-lg lg:text-2xl transition-transform ease-in-out duration-200"
+                    "scroll-smooth bg-color-bg align-middle md:text-lg lg:text-2xl transition-all ease-in-out duration-300"
                 )}
             >
                 <header>
@@ -196,7 +196,7 @@ export const Portfolio: React.FC = () => {
                             <div
                                 key={i}
                                 className={cn(
-                                    "text-xl lg:text-2xl xl:text-3xl",
+                                    "text-xl lg:text-2xl xl:text-3xl text-color-bg",
                                     liCycle === i
                                         ? liCycleStyles1
                                         : liCycleStyles2
@@ -210,10 +210,10 @@ export const Portfolio: React.FC = () => {
                 <div className="ml-10 mt-5">
                     Take a look at this{" "}
                     <a
-                        href="/time-converter"
+                        href="/time-formatter"
                         className="text-color-primary underline cursor-pointer visited:text-color-secondary"
                     >
-                        ISO Time Converter
+                        ISO Time Formatter
                     </a>{" "}
                     I made! I've found it very useful in my work
                 </div>
