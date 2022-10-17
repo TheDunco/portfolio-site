@@ -51,6 +51,8 @@
                 "no-unsafe-optional-chaining": "off",
                 "prefer-template": "off",
                 "no-empty": "off",
+                "react/no-unescaped-entities": "off",
+                "@next/next/no-html-link-for-pages": "off",
                 "unused-imports/no-unused-vars": [
                     "error",
                     { "argsIgnorePattern": "^_" }
