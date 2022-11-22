@@ -67,6 +67,9 @@ export const Sandbox: React.FC<{ date: Date }> = ({ date: staticDate }) => {
           } catch (err) {
             if (err instanceof Error) {
               setError(err.message);
+              setTimeout(() => {
+                setError('');
+              }, 5000);
             }
           }
         }}
